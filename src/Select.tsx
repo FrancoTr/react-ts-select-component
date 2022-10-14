@@ -1,3 +1,5 @@
+import styles from "./select.module.css";
+
 type SelectOption = {
   label: string;
   value: string;
@@ -9,4 +11,11 @@ type SelectProps = {
   onChange: (value: SelectOption | undefined) => void;
 };
 
-export function Select({ value, onChange, options }: SelectProps) {}
+export function Select({ value, onChange, options }: SelectProps) {
+  return (
+    <div className={styles.container}>
+      <span className={styles.value}>Value</span>
+      <button className={styles["clear-btn"]}>&times;</button>
+    </div>
+  );
+}

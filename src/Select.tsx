@@ -22,6 +22,11 @@ export function Select({ value, onChange, options }: SelectProps) {
   function selectOption(option: SelectOption) {
     onChange(option);
   }
+
+  function isOptionSelected(option: SelectOption) {
+    return option === value;
+  }
+
   return (
     <div
       onBlur={() => setIsOpen(false)}
@@ -50,7 +55,7 @@ export function Select({ value, onChange, options }: SelectProps) {
               selectOption(option);
               setIsOpen(false);
             }}
-            className={styles.option}
+            className={`${styles.option} ${isOptionSelected(option) ? styles.selected : ""}`}
           >
             {option.label}
           </li>

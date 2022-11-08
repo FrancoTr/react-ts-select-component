@@ -3,7 +3,7 @@ import styles from "./select.module.css";
 
 type SelectOption = {
   label: string;
-  value: any;
+  value: string | number;
 };
 
 type SelectProps = {
@@ -21,7 +21,7 @@ export function Select({ value, onChange, options }: SelectProps) {
   }
 
   function selectOption(option: SelectOption) {
-    onChange(option);
+    if (option !== value) onChange(option);
   }
 
   function isOptionSelected(option: SelectOption) {
@@ -56,7 +56,7 @@ export function Select({ value, onChange, options }: SelectProps) {
       <ul className={`${styles.options} ${isOpen ? styles.show : ""}`}>
         {options.map((option, index) => (
           <li
-            key={option.label}
+            key={option.value}
             onMouseEnter={() => setHighlightedIndex(index)}
             onClick={(e) => {
               e.stopPropagation();

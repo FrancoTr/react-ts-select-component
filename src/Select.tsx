@@ -43,7 +43,7 @@ export function Select({ multiple, value, onChange, options }: SelectProps) {
   }
 
   function isOptionSelected(option: SelectOption) {
-    return option === value;
+    return multiple ? value.includes(option) : option === value;
   }
 
   useEffect(() => {
@@ -59,7 +59,7 @@ export function Select({ multiple, value, onChange, options }: SelectProps) {
       tabIndex={0}
       className={styles.container}
     >
-      <span className={styles.value}>{value?.label}</span>
+      <span className={styles.value}>{multiple ? null : value?.label}</span>
       <button
         onClick={(e) => {
           e.stopPropagation();

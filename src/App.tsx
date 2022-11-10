@@ -17,6 +17,7 @@ function App() {
   return (
     <>
       <Select multiple options={options} value={value1} onChange={(option) => setValue1(option)} />
+      <br />
       <Select options={options} value={value2} onChange={(option) => setValue2(option)} />
     </>
   );

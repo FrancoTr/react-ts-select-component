@@ -65,7 +65,7 @@ export function Select({ multiple, value, onChange, options }: SelectProps) {
           }
           break;
         case "ArrowUp":
-        case "ArrowDown":
+        case "ArrowDown": {
           if (!isOpen) {
             setIsOpen(true);
             break;
@@ -75,6 +75,7 @@ export function Select({ multiple, value, onChange, options }: SelectProps) {
             setHighlightedIndex(newValue);
           }
           break;
+        }
         case "Escape":
           setIsOpen(false);
           break;

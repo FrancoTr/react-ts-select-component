@@ -64,6 +64,17 @@ export function Select({ multiple, value, onChange, options }: SelectProps) {
             selectOption(options[highlightedIndex]);
           }
           break;
+        case "ArrowUp":
+        case "ArrowDown":
+          if (!isOpen) {
+            setIsOpen(true);
+            break;
+          }
+          const newValue = highlightedIndex + (e.code === "ArrowDown" ? 1 : -1);
+          if (newValue >= 0 && newValue < options.length) {
+            setHighlightedIndex(newValue);
+          }
+          break;
       }
     };
     containerRef.current?.addEventListener("keydown", handler);
